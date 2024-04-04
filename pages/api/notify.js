@@ -1,6 +1,6 @@
 import { Knock } from "@knocklabs/node";
 
-const knockClient = new Knock(process.env.KNOCK_SECRET_API_KEY);
+// const knockClient = new Knock(process.env.KNOCK_SECRET_API_KEY);
 
 const KNOCK_WORKFLOW = "test-workflow"; // work flow ID
 
@@ -15,18 +15,19 @@ export default async function handler(req, res) {
   const { message, showToast, userId, tenant, templateType } = req.body;
 
   try {
-    await knockClient.workflows.trigger(KNOCK_WORKFLOW, {
-      recipients: [userId],
-      actor: userId,
-      tenant: tenant,
-      data: {
-        message,
-        showToast,
-        templateType,
-      },
-    });
+  //   await knockClient.workflows.trigger(KNOCK_WORKFLOW, {
+  //     recipients: [userId],
+  //     actor: userId,
+  //     tenant: tenant,
+  //     data: {
+  //       message,
+  //       showToast,
+  //       templateType,
+  //     },
+  //   });
 
-    return res.status(200).json({ error: null });
+  //   return res.status(200).json({ error: null });
+  return null;
   } catch (error) {
     return res
       .status(500)
